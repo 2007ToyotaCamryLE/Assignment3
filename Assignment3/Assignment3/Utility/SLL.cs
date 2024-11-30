@@ -101,7 +101,7 @@ namespace Assignment3
                 current = current.Next;
             }
 
-            current.Value = value;
+            current.Data = value;
         }
 
         public int Count()
@@ -185,7 +185,7 @@ namespace Assignment3
                 current = current.Next;
             }
 
-            return current.Value;
+            return current.Data;
         }
 
         public int IndexOf(User value)
@@ -193,7 +193,7 @@ namespace Assignment3
             Node current = head;
             for (int i = 0; i < count; i++)
             {
-                if (current.Value.Equals(value))
+                if (current.Data.Equals(value))
                 {
                     return i;
                 }
@@ -210,7 +210,6 @@ namespace Assignment3
 
         public void Reverse()
         {
-            // Implement the logic to reverse the order of nodes in the linked list
             if (count <= 1)
             {
                 return;
@@ -233,7 +232,6 @@ namespace Assignment3
 
         public void SortByName()
         {
-            // Implement the logic to sort the nodes in ascending order based on user names
             if (count <= 1)
             {
                 return;
@@ -248,7 +246,7 @@ namespace Assignment3
 
                 while (current.Next != null)
                 {
-                    if (string.Compare(current.Value.Name, current.Next.Value.Name) > 0)
+                    if (string.Compare(current.Data.Name, current.Next.Data.Name) > 0)
                     {
                         Node temp = current.Next;
                         current.Next = temp.Next;
@@ -274,13 +272,12 @@ namespace Assignment3
 
         public User[] CopyToArray()
         {
-            // Implement the logic to copy the values of the linked list nodes into an array
             User[] array = new User[count];
             Node current = head;
 
             for (int i = 0; i < count; i++)
             {
-                array[i] = current.Value;
+                array[i] = current.Data;
                 current = current.Next;
             }
 
@@ -289,7 +286,6 @@ namespace Assignment3
 
         public void Join(ILinkedListADT otherList)
         {
-            // Implement the logic to join two linked lists together to create a single linked list
             if (otherList == null || otherList.IsEmpty())
             {
                 return;
@@ -307,8 +303,6 @@ namespace Assignment3
 
         public (ILinkedListADT, ILinkedListADT) Divide(int index)
         {
-            // Implement the logic to divide the linked list into two separate linked lists based on a specific index position
-            {
             if (index < 0 || index >= count)
                 throw new IndexOutOfRangeException("Index is out of range.");
     
